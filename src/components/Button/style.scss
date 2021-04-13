@@ -1,7 +1,7 @@
 .button {
   border-radius: 20px;
   padding: 0;
-  width: 150px;
+  width: 120px;
   height: 50px;
   border: 5px solid #d6658d88;
   display: flex;
@@ -9,5 +9,7 @@
   align-items: center;
   background-color: white;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 18px;
+  color: #646464;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.247);
 }

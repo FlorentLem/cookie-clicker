@@ -1,5 +1,6 @@
 import React from 'react'
 import ClickerContainer from './ClickerContainer'
+import Bubble from './components/Bubble'
 import Cookie from './components/Cookie'
 
 const Clicker = () => {
@@ -8,13 +9,32 @@ const Clicker = () => {
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    Position: 'relative'
   }
   return (
     <div style={style}>
+      <Bubble
+        newStyle={{
+          position: 'absolute',
+          top: 10,
+          left: 350
+        }}
+      >
+        <div>2500 Cookies</div>
+      </Bubble>
       <ClickerContainer>
         <Cookie />
       </ClickerContainer>
+      <Bubble
+        newStyle={{
+          position: 'absolute',
+          bottom: 10,
+          left: 350
+        }}
+      >
+        <div>per sec: 2500</div>
+      </Bubble>
     </div>
   )
 }
