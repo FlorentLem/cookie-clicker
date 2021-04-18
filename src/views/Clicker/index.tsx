@@ -2,8 +2,12 @@ import React from 'react'
 import ClickerContainer from './ClickerContainer'
 import Bubble from './components/Bubble'
 import Cookie from './components/Cookie'
+import { useSelector } from 'react-redux'
+import { selectCurrentCookie } from '../../features/cookieCount/selectors/cookie'
 
 const Clicker = () => {
+  const cookie = useSelector(selectCurrentCookie)
+
   const style = {
     width: '50%',
     height: '100%',
@@ -21,7 +25,7 @@ const Clicker = () => {
           left: 350
         }}
       >
-        <div>2500 Cookies</div>
+        <div>{cookie} Cookies</div>
       </Bubble>
       <ClickerContainer>
         <Cookie />

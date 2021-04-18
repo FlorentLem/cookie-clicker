@@ -1,9 +1,14 @@
 import React from 'react'
-import cookie from '../../../assets/images/cookie-assets.png'
+import './style.scss'
+import { useDispatch } from 'react-redux'
+import { clickCookie } from '../../../features/cookieCount/cookieSlice'
 
 const Cookie = () => {
+  const dispatch = useDispatch()
+
   const style = {
-    backgroundImage: `url(${cookie})`,
+    marginLeft: '50px',
+    backgroundImage: `url(https://cdn128.picsart.com/212176745002202.gif?to=min&r=640)`,
     height: '300px',
     width: '300px',
     backgroundPosition: 'center center',
@@ -11,7 +16,13 @@ const Cookie = () => {
     backgroundRepeat: 'no-repeat'
   }
 
-  return <div style={style} />
+  return (
+    <div
+      className="cookie"
+      style={style}
+      onClick={() => dispatch(clickCookie(1))}
+    />
+  )
 }
 
 export default Cookie
