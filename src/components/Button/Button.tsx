@@ -3,12 +3,17 @@ import './style.scss'
 
 interface Props {
   children: JSX.Element | string
-  onClick?: () => void
+  onClick: () => void
+  newStyle?: React.CSSProperties
 }
 
-const Button: React.FC<Props> = ({ children, onClick }) => {
+const Button: React.FC<Props> = ({ children, onClick, newStyle }) => {
   return (
-    <button className="button" onClick={() => onClick}>
+    <button
+      style={{ ...newStyle }}
+      className="button"
+      onClick={() => onClick()}
+    >
       {children}
     </button>
   )

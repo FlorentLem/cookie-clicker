@@ -12,7 +12,7 @@ const cookieSlice = createSlice({
   }
 })
 
-export const clickCookie = createAction<number>('cookie/clickCookie')
+export const addingCookie = createAction<number>('cookie/clickCookie')
 
 export const { setCookie } = cookieSlice.actions
 

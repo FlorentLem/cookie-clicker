@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 import { useDispatch } from 'react-redux'
-import { clickCookie } from '../../../features/cookieCount/cookieSlice'
+import { addingCookie } from '../../../features/cookieCount/cookieSlice'
 
 const Cookie = () => {
   const dispatch = useDispatch()
@@ -13,14 +13,15 @@ const Cookie = () => {
     width: '300px',
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    cursor: 'pointer'
   }
 
   return (
     <div
       className="cookie"
       style={style}
-      onClick={() => dispatch(clickCookie(1))}
+      onClick={() => dispatch(addingCookie(1))}
     />
   )
 }

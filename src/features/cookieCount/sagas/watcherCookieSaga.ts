@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects'
-import { clickCookie } from '../cookieSlice'
+import { addingCookie } from '../cookieSlice'
 import { addCookie } from './cookieSaga'
 
 export function* watcherCookieSaga() {
-  yield takeEvery(clickCookie.type, addCookie)
+  yield takeEvery(addingCookie.type, addCookie)
 }

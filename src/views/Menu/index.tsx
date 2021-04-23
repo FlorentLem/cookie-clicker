@@ -1,6 +1,7 @@
 import React from 'react'
 import MenuContainer from './MenuContainer'
 import CardUpdgrades from './components/CardUpgrade'
+import { v4 as uuidv4 } from 'uuid'
 
 const Menu = () => {
   const style: React.CSSProperties = {
@@ -14,32 +15,24 @@ const Menu = () => {
 
   const tableau = [
     {
-      content: 'Bakerie',
-      price: 99999
+      content: 'Hoven',
+      perSec: 10,
+      price: 150
+    },
+    {
+      content: 'Patisserie',
+      perSec: 100,
+      price: 1000
+    },
+    {
+      content: 'Factory',
+      perSec: 500,
+      price: 5000
     },
     {
       content: 'Bakerie',
-      price: 99999
-    },
-    {
-      content: 'Bakerie',
-      price: 99999
-    },
-    {
-      content: 'Bakerie',
-      price: 99999
-    },
-    {
-      content: 'Bakerie',
-      price: 99999
-    },
-    {
-      content: 'Bakerie',
-      price: 99999
-    },
-    {
-      content: 'Bakerie',
-      price: 99999
+      perSec: 2000,
+      price: 10000
     }
   ]
 
@@ -56,7 +49,14 @@ const Menu = () => {
       </h1>
       <MenuContainer>
         {tableau.map(t => {
-          return <CardUpdgrades content={t.content} price={t.price} />
+          return (
+            <CardUpdgrades
+              key={uuidv4()}
+              content={t.content}
+              price={t.price}
+              perSec={t.perSec}
+            />
+          )
         })}
       </MenuContainer>
     </div>

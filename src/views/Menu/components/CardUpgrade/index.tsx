@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import Button from '../../../../components/Button/Button'
+import { selectCurrentCookie } from '../../../../features/cookieCount/selectors/cookie'
+import { useDispatch } from 'react-redux'
+import { chooseUpgrade } from '../../../../features/upgrades/upgradesSlide'
 
 interface Props {
   content: string
   price: number
+  perSec: number
 }
 
-const CardUpgrade: React.FC<Props> = ({ content, price }) => {
+const CardUpgrade: React.FC<Props> = ({ content, price, perSec }) => {
+  const dispatch = useDispatch()
+  const currentCookie = useSelector(selectCurrentCookie)
+  const [count, setCount] = useState(1)
+
   const style: React.CSSProperties = {
     height: '80px',
     width: '90%',
@@ -29,16 +38,27 @@ const CardUpgrade: React.FC<Props> = ({ content, price }) => {
           color: '#646464'
         }}
       >
-        <div
-          style={{
-            marginBottom: '10px'
-          }}
-        >
-          Bakerie level +999: {content}
-        </div>
-        <div>Price: {price}</div>
+        <div>{content}</div>
+        <div>Per sec: {perSec}</div>
+        <div>Price: {price * count}</div>
       </div>
-      <Button>Buy</Button>
+      <Button
+        onClick={
+          currentCookie >= price * count
+            ? () => {
+                setCount(count + 1)
+                dispatch(
+                  chooseUpgrade({ price: price * count, persec: perSec })
+                )
+              }
+            : () => {}
+        }
+        newStyle={{
+          cursor: currentCookie < price * count ? 'not-allowed' : 'pointer'
+        }}
+      >
+        Buy
+      </Button>
     </div>
   )
 }

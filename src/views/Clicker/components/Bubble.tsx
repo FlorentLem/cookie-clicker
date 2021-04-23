@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.scss'
 
 type Props = {
   newStyle?: React.CSSProperties
@@ -18,7 +19,11 @@ const Bubble = ({ children, newStyle }: Props) => {
     fontSize: '36px'
   }
 
-  return <div style={{ ...style, ...newStyle }}>{children}</div>
+  return (
+    <div className="bubble" style={{ ...style, ...newStyle }}>
+      {children}
+    </div>
+  )
 }
 
 export default Bubble

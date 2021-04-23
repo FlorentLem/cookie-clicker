@@ -14,3 +14,8 @@
     transform: translatey(0px);
   }
 }
+
+.bubble::selection {
+  background-color: none;
+  color: inherit;
+}

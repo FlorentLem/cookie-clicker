@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import cookieReducer from '../features/cookieCount/cookieSlice'
+import upgradeReducer from '../features/upgrades/upgradesSlide'
 import {
   useSelector as rawUseSelector,
   TypedUseSelectorHook
@@ -7,7 +8,8 @@ import {
 import { PayloadAction } from '@reduxjs/toolkit'
 
 const appReducer = combineReducers({
-  cookie: cookieReducer
+  cookie: cookieReducer,
+  persec: upgradeReducer
 })
 
 const rootReducer = (state: any, action: PayloadAction) => {
